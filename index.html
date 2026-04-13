@@ -553,60 +553,97 @@
     ============================================= */
     .flash {
       background: var(--g900); border-radius: var(--r-2xl);
-      padding: 40px 48px; margin-bottom: 0;
-      display: grid; grid-template-columns: 1fr auto;
-      align-items: center; gap: 40px;
+      padding: 40px 44px; margin-bottom: 0;
+      display: grid; grid-template-columns: 280px 1fr;
+      align-items: center; gap: 48px;
       position: relative; overflow: hidden;
+    }
+    .flash::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 15% 50%, rgba(11,194,112,0.18) 0%, transparent 55%),
+                  radial-gradient(ellipse at 85% 20%, rgba(13,217,128,0.1) 0%, transparent 40%);
+      pointer-events: none;
     }
     .flash::after {
       content: '⚡';
-      position: absolute; right: 440px; top: 50%;
-      transform: translateY(-50%) rotate(-10deg);
-      font-size: 140px; opacity: 0.04; pointer-events: none;
+      position: absolute; left: 260px; top: 50%;
+      transform: translateY(-50%);
+      font-size: 160px; opacity: 0.035; pointer-events: none;
     }
-    .flash__left { color: #fff; }
+    .flash__left { color: #fff; position: relative; z-index: 1; }
     .flash__badge {
       display: inline-flex; align-items: center; gap: 6px;
       background: var(--warn); color: #fff;
-      font-family: var(--f-ui); font-size: 11px; font-weight: 800;
-      text-transform: uppercase; letter-spacing: 1px;
-      padding: 4px 12px; border-radius: var(--r-full);
-      margin-bottom: 12px;
-    }
-    .flash__title { font-family: var(--f-head); font-size: 28px; font-weight: 800; letter-spacing: -0.5px; }
-    .flash__sub { font-size: 13.5px; color: rgba(255,255,255,0.6); margin-top: 6px; }
-    .flash__timer { display: flex; align-items: center; gap: 8px; margin-top: 20px; }
-    .flash__unit {
-      background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.1);
-      border-radius: var(--r-md); padding: 10px 16px; text-align: center; min-width: 56px;
-    }
-    .flash__num { font-family: var(--f-ui); font-size: 24px; font-weight: 700; color: #fff; display: block; }
-    .flash__lbl { font-size: 9.5px; color: rgba(255,255,255,0.4); text-transform: uppercase; letter-spacing: 0.5px; }
-    .flash__sep { font-size: 22px; color: var(--g200); font-weight: 700; }
-
-    .flash__products { display: flex; gap: 10px; }
-    .flash__prod {
-      background: #fff; border-radius: var(--r-lg);
-      width: 136px; padding: 14px 12px 12px;
-      text-align: center; position: relative;
-      transition: transform 200ms var(--ease-out);
-    }
-    .flash__prod:hover { transform: translateY(-4px); }
-    .flash__prod-badge {
-      position: absolute; top: 8px; right: 8px;
-      background: var(--red); color: #fff;
       font-family: var(--f-ui); font-size: 10.5px; font-weight: 800;
-      padding: 2px 7px; border-radius: var(--r-full);
+      text-transform: uppercase; letter-spacing: 1.2px;
+      padding: 5px 13px; border-radius: var(--r-full);
+      margin-bottom: 14px;
+      box-shadow: 0 0 0 0 rgba(255,159,28,0.5);
+      animation: flashPulse 2.5s ease-out infinite;
+    }
+    @keyframes flashPulse {
+      0%   { box-shadow: 0 0 0 0 rgba(255,159,28,0.5); }
+      60%  { box-shadow: 0 0 0 8px rgba(255,159,28,0); }
+      100% { box-shadow: 0 0 0 0 rgba(255,159,28,0); }
+    }
+    .flash__title { font-family: var(--f-head); font-size: 26px; font-weight: 800; letter-spacing: -0.5px; line-height: 1.2; }
+    .flash__sub { font-size: 13px; color: rgba(255,255,255,0.55); margin-top: 8px; line-height: 1.55; }
+    .flash__timer { display: flex; align-items: center; gap: 8px; margin-top: 22px; }
+    .flash__unit {
+      background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12);
+      border-radius: var(--r-md); padding: 10px 14px; text-align: center; min-width: 54px;
+      backdrop-filter: blur(4px);
+    }
+    .flash__num { font-family: var(--f-ui); font-size: 26px; font-weight: 700; color: #fff; display: block; line-height: 1; }
+    .flash__lbl { font-size: 9px; color: rgba(255,255,255,0.38); text-transform: uppercase; letter-spacing: 0.6px; margin-top: 3px; display: block; }
+    .flash__sep { font-size: 20px; color: var(--g300, #29E090); font-weight: 700; opacity: 0.7; }
+    .flash__see-all {
+      display: inline-flex; align-items: center; gap: 6px;
+      margin-top: 20px; font-family: var(--f-ui); font-size: 11.5px; font-weight: 600;
+      color: var(--g200); letter-spacing: 0.3px;
+      transition: gap 150ms, color 150ms;
+    }
+    .flash__see-all:hover { gap: 10px; color: var(--g400); }
+
+    .flash__products { display: flex; gap: 12px; position: relative; z-index: 1; flex: 1; }
+    .flash__prod {
+      background: #fff; border-radius: var(--r-xl);
+      flex: 1; min-width: 0; padding: 20px 16px 16px;
+      text-align: center; position: relative;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.18);
+      transition: transform 220ms var(--ease-out), box-shadow 220ms;
+      cursor: pointer;
+    }
+    .flash__prod:hover { transform: translateY(-5px); box-shadow: 0 12px 32px rgba(0,0,0,0.25); }
+    .flash__prod-badge {
+      position: absolute; top: 10px; left: 10px;
+      background: var(--red); color: #fff;
+      font-family: var(--f-ui); font-size: 11px; font-weight: 800;
+      padding: 3px 8px; border-radius: var(--r-full);
     }
     .flash__prod-img {
-      width: 72px; height: 72px; margin: 0 auto 10px;
-      background: var(--g25); border-radius: var(--r-md);
-      display: flex; align-items: center; justify-content: center; font-size: 34px;
+      width: 120px; height: 120px; margin: 0 auto 14px;
+      background: var(--g25); border-radius: var(--r-lg);
+      display: flex; align-items: center; justify-content: center;
     }
-    .flash__prod-brand { font-family: var(--f-ui); font-size: 9.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: var(--g500); }
-    .flash__prod-name { font-family: var(--f-head); font-size: 11.5px; font-weight: 600; color: var(--ink); margin-top: 3px; line-height: 1.3; }
-    .flash__prod-price { font-family: var(--f-ui); font-size: 15px; font-weight: 700; color: var(--g700); margin-top: 6px; }
-    .flash__prod-old { font-size: 11px; color: #aaa; text-decoration: line-through; }
+    .flash__prod-brand { font-family: var(--f-ui); font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.6px; color: var(--g500); }
+    .flash__prod-name { font-family: var(--f-head); font-size: 13px; font-weight: 600; color: var(--ink); margin-top: 5px; line-height: 1.4; min-height: 36px; }
+    .flash__prod-prices { display: flex; align-items: baseline; justify-content: center; gap: 7px; margin-top: 10px; }
+    .flash__prod-price { font-family: var(--f-ui); font-size: 18px; font-weight: 700; color: var(--g700); }
+    .flash__prod-old { font-size: 12px; color: #bbb; text-decoration: line-through; }
+    .flash__prod-stock { margin-top: 10px; }
+    .flash__prod-stock-bar {
+      height: 3px; background: var(--border); border-radius: 99px; overflow: hidden;
+    }
+    .flash__prod-stock-fill {
+      height: 100%; border-radius: 99px; background: var(--warn);
+      transition: width 300ms;
+    }
+    .flash__prod-stock-lbl {
+      font-family: var(--f-ui); font-size: 9.5px; color: var(--muted);
+      margin-top: 4px; display: block;
+    }
 
     /* =============================================
        PRODUCTS GRID — Magazine style
@@ -858,7 +895,7 @@
     /* Flash deal product images */
     .flash__prod-img { background: #f8fffe; display: flex; align-items: center; justify-content: center; }
     .flash__prod-img img {
-      width: 64px; height: 64px;
+      width: 100px; height: 100px;
       object-fit: contain;
       mix-blend-mode: multiply;
     }
@@ -1066,8 +1103,8 @@
     <div class="flash reveal">
       <div class="flash__left">
         <div class="flash__badge">⚡ Flash Promo</div>
-        <div class="flash__title">Offres du jour — jusqu'à −50%</div>
-        <div class="flash__sub">Profitez de nos meilleures réductions avant épuisement du stock</div>
+        <div class="flash__title">Offres du jour<br/>jusqu'à −50%</div>
+        <div class="flash__sub">Réductions limitées avant<br/>épuisement du stock</div>
         <div class="flash__timer">
           <div class="flash__unit"><span class="flash__num" id="hours">04</span><span class="flash__lbl">Heures</span></div>
           <span class="flash__sep">:</span>
@@ -1075,6 +1112,7 @@
           <span class="flash__sep">:</span>
           <div class="flash__unit"><span class="flash__num" id="secs">12</span><span class="flash__lbl">Secondes</span></div>
         </div>
+        <a href="#" class="flash__see-all">Voir toutes les promos →</a>
       </div>
       <div class="flash__products">
         <div class="flash__prod">
@@ -1082,24 +1120,33 @@
           <div class="flash__prod-img"><img src="https://back-ac-prod.bioderma.com/media/catalog/product/cache/03d338ebffd60c1c93520742c20c504c/d/e/de7a0a5c52c3eb289f3b1735c1f3d727-_7b202215_7d__7bbio_crealine_h2o_7d__7b28221a_7d_500x500.png" alt="Bioderma Sensibio H2O"/></div>
           <div class="flash__prod-brand">Bioderma</div>
           <div class="flash__prod-name">Sensibio H2O 500ml</div>
-          <div class="flash__prod-price">1 450 DA</div>
-          <div class="flash__prod-old">2 100 DA</div>
+          <div class="flash__prod-prices"><span class="flash__prod-price">1 450 DA</span><span class="flash__prod-old">2 100 DA</span></div>
+          <div class="flash__prod-stock">
+            <div class="flash__prod-stock-bar"><div class="flash__prod-stock-fill" style="width:38%"></div></div>
+            <span class="flash__prod-stock-lbl">38% restants</span>
+          </div>
         </div>
         <div class="flash__prod">
           <span class="flash__prod-badge">−50%</span>
           <div class="flash__prod-img"><img src="https://www.pharma-gdd.com/media/cache/resolve/product_show/6d61676e652d62362d636f6d7072696d652d64652d6d61676e657369756d2d66616365eb83ff19.jpg" alt="Magné B6"/></div>
           <div class="flash__prod-brand">Magné B6</div>
           <div class="flash__prod-name">Magnésium + Vit. B6 60cp</div>
-          <div class="flash__prod-price">850 DA</div>
-          <div class="flash__prod-old">1 700 DA</div>
+          <div class="flash__prod-prices"><span class="flash__prod-price">850 DA</span><span class="flash__prod-old">1 700 DA</span></div>
+          <div class="flash__prod-stock">
+            <div class="flash__prod-stock-bar"><div class="flash__prod-stock-fill" style="width:15%"></div></div>
+            <span class="flash__prod-stock-lbl">Stock critique</span>
+          </div>
         </div>
         <div class="flash__prod">
           <span class="flash__prod-badge">−25%</span>
           <div class="flash__prod-img"><img src="https://www.pharma-gdd.com/media/cache/resolve/product_show/76696368792d6c69667461637469762d68612d6879616c75726f6e69632d7370656369616c6973742d736572756d2d66696c6c65722d326d2e4108.jpg" alt="Vichy Liftactiv"/></div>
           <div class="flash__prod-brand">Vichy</div>
-          <div class="flash__prod-name">Liftactiv HA Sérum</div>
-          <div class="flash__prod-price">2 200 DA</div>
-          <div class="flash__prod-old">2 950 DA</div>
+          <div class="flash__prod-name">Liftactiv HA Sérum 30ml</div>
+          <div class="flash__prod-prices"><span class="flash__prod-price">2 200 DA</span><span class="flash__prod-old">2 950 DA</span></div>
+          <div class="flash__prod-stock">
+            <div class="flash__prod-stock-bar"><div class="flash__prod-stock-fill" style="width:62%"></div></div>
+            <span class="flash__prod-stock-lbl">62% restants</span>
+          </div>
         </div>
       </div>
     </div>
