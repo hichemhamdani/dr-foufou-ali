@@ -13,20 +13,20 @@
     ============================================= */
     :root {
       --g900: #064A2A;
-      --g700: #08A05A;
+      --g700: #064A2A;
       --g500: #0BC270;
-      --g400: #0DD980;
-      --g200: #5EE8AA;
-      --g100: #A8F2D1;
-      --g50:  #E8FBF3;
-      --g25:  #F0FDF8;
+      --g400: #0BC270;
+      --g200: #0BC270;
+      --g100: #f5f4ee;
+      --g50:  #f5f4ee;
+      --g25:  #f5f4ee;
 
       --white:   #FFFFFF;
       --ink:     #0F1A14;
-      --ink-2:   #2A3D32;
+      --ink-2:   #064A2A;
       --muted:   #6B7F74;
-      --border:  #E4EDE8;
-      --surface: #F7FAF8;
+      --border:  #dddccc;
+      --surface: #f5f4ee;
 
       --warn:  #FF9F1C;
       --red:   #E63946;
@@ -89,8 +89,9 @@
 
     /* Section header */
     .sh { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 32px; }
-    .sh__title { font-family: var(--f-head); font-size: 26px; font-weight: 700; color: var(--ink); letter-spacing: -0.5px; }
-    .sh__sub { font-size: 13.5px; color: var(--muted); margin-top: 4px; }
+    .sh__title { font-family: var(--f-head); font-size: 34px; font-weight: 800; color: var(--ink); letter-spacing: -1px; line-height: 1.1; }
+    .sh__title em { font-style: normal; color: var(--g700); }
+    .sh__sub { font-size: 13.5px; color: var(--muted); margin-top: 6px; }
     .sh__link { font-family: var(--f-ui); font-size: 12.5px; font-weight: 600; color: var(--g500); letter-spacing: 0.3px; display: flex; align-items: center; gap: 4px; transition: gap 150ms; }
     .sh__link:hover { gap: 8px; color: var(--g700); }
 
@@ -103,9 +104,9 @@
     }
     .cta svg { width: 14px; height: 14px; transition: transform 200ms; }
     .cta:hover svg { transform: translateX(3px); }
-    .cta--solid  { background: var(--g500); color: #fff; }
+    .cta--solid  { background: var(--g700); color: #fff; }
     .cta--solid:hover { background: var(--g700); }
-    .cta--outline{ background: transparent; color: var(--g700); border: 1.5px solid var(--g500); }
+    .cta--outline{ background: transparent; color: var(--g700); border: 1.5px solid var(--g700); }
     .cta--outline:hover { background: var(--g50); }
     .cta--white  { background: #fff; color: var(--g900); }
     .cta--white:hover { background: var(--g50); }
@@ -114,129 +115,114 @@
     .cta--sm { padding: 8px 18px; font-size: 13px; }
 
     /* =============================================
-       TOP BAR — défilant
+       TOP BAR
     ============================================= */
     .topbar {
       background: var(--g50);
-      border-bottom: 1px solid var(--g100);
-      overflow: hidden; padding: 9px 0;
+      border-bottom: 1px solid var(--border);
+      padding: 11px 0; text-align: center;
     }
-    .topbar__track {
-      display: flex; align-items: center;
-      white-space: nowrap;
-      animation: marquee 32s linear infinite;
-      width: max-content;
-    }
-    .topbar__track:hover { animation-play-state: paused; }
-    @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
     .topbar__msg {
       display: inline-flex; align-items: center; gap: 10px;
-      font-family: var(--f-ui); font-size: 12px; color: var(--g900);
-      padding: 0 56px; letter-spacing: 0.2px;
+      font-family: var(--f-body); font-size: 13.5px; color: var(--g900);
     }
     .topbar__msg strong { font-weight: 700; }
-    .topbar__dot { display: inline-block; width: 4px; height: 4px; background: var(--g500); border-radius: 50%; flex-shrink: 0; }
+    .topbar__dot { display: inline-block; width: 5px; height: 5px; background: var(--g500); border-radius: 50%; }
 
     /* =============================================
        HEADER
     ============================================= */
     .header {
-      background: var(--white); border-bottom: 1px solid var(--border);
+      background: #fff;
       position: sticky; top: 0; z-index: 100;
     }
     .header__main {
-      display: grid; grid-template-columns: 1fr auto 1fr;
-      align-items: center; padding: 18px 0; gap: 24px;
+      display: grid; grid-template-columns: auto 1fr auto;
+      align-items: center; padding: 24px 0; gap: 40px;
     }
     .header__logo {
-      font-family: var(--f-head); font-size: 24px; font-weight: 800;
-      color: var(--g900); letter-spacing: -0.5px; text-transform: uppercase;
-      justify-self: start;
+      font-family: var(--f-head); font-size: 32px; font-weight: 900;
+      color: var(--ink); letter-spacing: 2px; text-transform: uppercase;
+      white-space: nowrap; text-decoration: none; line-height: 1;
     }
     .header__logo em { font-style: normal; color: var(--g500); }
     .header__search {
-      display: flex; align-items: center; gap: 10px;
-      background: var(--surface); border: 1px solid var(--border);
-      border-radius: var(--r-full); padding: 10px 20px; width: 400px;
-      transition: border-color 200ms, box-shadow 200ms;
+      display: flex; align-items: center; gap: 12px;
+      background: #f2f2f0; border: 2px solid transparent;
+      border-radius: var(--r-full); padding: 15px 28px;
+      transition: border-color 200ms, box-shadow 200ms, background 200ms;
     }
-    .header__search:focus-within { border-color: var(--g400); box-shadow: 0 0 0 3px rgba(11,194,112,0.12); background: #fff; }
-    .header__search svg { width: 15px; height: 15px; color: var(--muted); flex-shrink: 0; }
+    .header__search:focus-within {
+      border-color: var(--g500); background: #fff;
+      box-shadow: 0 0 0 4px rgba(11,194,112,0.1);
+    }
+    .header__search svg { width: 18px; height: 18px; color: var(--muted); flex-shrink: 0; }
     .header__search input {
       flex: 1; border: none; background: transparent;
-      font-family: var(--f-ui); font-size: 13px; letter-spacing: 0.4px;
-      text-transform: uppercase; outline: none; color: var(--ink); min-width: 0;
+      font-family: var(--f-body); font-size: 15px;
+      outline: none; color: var(--ink); min-width: 0;
     }
-    .header__search input::placeholder { color: var(--muted); font-weight: 400; }
-    .header__actions { display: flex; align-items: center; gap: 4px; justify-self: end; }
-    .header__cta-btn {
-      display: inline-flex; align-items: center; gap: 7px;
-      padding: 8px 16px; border-radius: var(--r-full);
-      border: 1.5px solid var(--g500); background: transparent;
-      font-family: var(--f-ui); font-size: 11.5px; font-weight: 600;
-      color: var(--g700); letter-spacing: 0.4px; text-transform: uppercase;
-      cursor: pointer; transition: all 150ms; white-space: nowrap;
+    .header__search input::placeholder { color: var(--muted); }
+    .header__actions { display: flex; align-items: center; gap: 24px; }
+    .header__action-group {
+      display: flex; align-items: center; gap: 9px;
+      cursor: pointer; background: none; border: none;
+      color: var(--ink); transition: color 150ms; padding: 0;
     }
-    .header__cta-btn:hover { background: var(--g50); }
-    .header__cta-btn svg { width: 13px; height: 13px; }
-    .header__text-link {
-      font-family: var(--f-ui); font-size: 11.5px; font-weight: 600;
-      color: var(--ink); letter-spacing: 0.4px; text-transform: uppercase;
-      padding: 8px 10px; background: none; border: none; cursor: pointer;
-      text-decoration: underline; text-underline-offset: 3px; text-decoration-color: transparent;
-      transition: color 150ms, text-decoration-color 150ms;
+    .header__action-group:hover { color: var(--g500); }
+    .header__action-group svg { width: 22px; height: 22px; stroke-width: 1.5; flex-shrink: 0; }
+    .header__action-label {
+      font-family: var(--f-body); font-size: 14px; font-weight: 500;
+      color: inherit; white-space: nowrap; line-height: 1.25; text-align: left;
     }
-    .header__text-link:hover { color: var(--g700); text-decoration-color: var(--g500); }
-    .header__div { width: 1px; height: 18px; background: var(--border); margin: 0 4px; }
-    .header__icon {
+    .header__action-label small {
+      display: block; font-size: 11px; color: var(--muted); font-weight: 400;
+    }
+    .header__icon-only {
       display: flex; align-items: center; justify-content: center;
-      width: 36px; height: 36px; border-radius: var(--r-md);
-      color: var(--ink); cursor: pointer; transition: all 150ms; position: relative;
+      width: 44px; height: 44px; border-radius: 50%;
+      color: var(--ink); cursor: pointer; transition: all 150ms;
+      position: relative; background: none; border: none;
     }
-    .header__icon:hover { color: var(--g500); background: var(--g25); }
-    .header__icon svg { width: 20px; height: 20px; stroke-width: 1.7; }
+    .header__icon-only:hover { color: var(--g500); background: var(--g50); }
+    .header__icon-only svg { width: 24px; height: 24px; stroke-width: 1.5; }
     .header__badge {
       position: absolute; top: 2px; right: 2px;
       background: var(--g500); color: #fff;
-      border-radius: var(--r-full); width: 15px; height: 15px;
+      border-radius: var(--r-full); width: 18px; height: 18px;
       display: flex; align-items: center; justify-content: center;
-      font-size: 9px; font-weight: 700; border: 1.5px solid #fff;
+      font-size: 10px; font-weight: 700; border: 2px solid #fff;
     }
+    .header__divider { width: 1px; height: 28px; background: var(--border); }
 
     /* NAV */
-    .nav { border-top: 1px solid var(--border); }
     .nav__inner { display: flex; align-items: center; }
     .nav__menu {
-      display: inline-flex; align-items: center; gap: 7px;
-      padding: 11px 16px; font-family: var(--f-ui); font-size: 11px; font-weight: 700;
-      letter-spacing: 1px; text-transform: uppercase; color: var(--ink);
-      background: none; border: none; cursor: pointer; transition: color 150ms;
-      margin-right: 6px;
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 15px 20px 15px 0; font-family: var(--f-body); font-size: 14px; font-weight: 600;
+      color: var(--ink); background: none; border: none; cursor: pointer;
+      transition: color 150ms; margin-right: 16px; white-space: nowrap;
+      border-right: 1px solid var(--border);
     }
-    .nav__menu:hover { color: var(--g700); }
-    .nav__menu svg { width: 13px; height: 13px; }
+    .nav__menu:hover { color: var(--g500); }
+    .nav__menu svg { width: 16px; height: 16px; }
     .nav__item {
-      display: inline-flex; align-items: center; gap: 5px;
-      padding: 11px 14px; font-family: var(--f-ui); font-size: 11px; font-weight: 600;
-      letter-spacing: 1px; text-transform: uppercase; color: var(--ink);
-      white-space: nowrap; cursor: pointer; transition: color 150ms;
+      display: inline-flex; align-items: center;
+      padding: 15px 16px; font-family: var(--f-body); font-size: 14px; font-weight: 400;
+      color: var(--ink); white-space: nowrap; cursor: pointer;
       text-decoration: none; border-bottom: 2px solid transparent;
+      transition: color 150ms, border-color 150ms;
+      font-weight: 500;
+      font-size: 0.9rem;
+      font-family: "Poppins";
     }
-    .nav__item:hover { color: var(--g700); }
-    .nav__item--active {
-      background: var(--g50); color: var(--g700);
-      border-radius: var(--r-full); border-bottom: 2px solid transparent;
-      margin: 5px 4px 5px 0; padding: 5px 14px;
-    }
+    .nav__item:hover { color: var(--g500); border-bottom-color: var(--g500); }
+    .nav__item--active { color: var(--g500); font-weight: 600; border-bottom-color: var(--g500); }
     .nav__sep { flex: 1; }
-    .nav__item--conseils { color: var(--g700); }
-    .nav__item--trendy { color: #D4500A; }
-    .nav__item--promos {
-      background: #D93B25; color: #fff;
-      border-radius: var(--r-full); margin: 5px 0; padding: 5px 16px;
-      border-bottom: 2px solid transparent;
-    }
-    .nav__item--promos:hover { background: #b52f1c; color: #fff; }
+    .nav__item--conseils { color: var(--g900); font-weight: 600; }
+    .nav__item--trendy { color: #D4500A; font-weight: 600; }
+    .nav__item--promos { color: #D93B25; font-weight: 700; }
+    .nav__item--promos:hover { color: #b52f1c; border-bottom-color: #D93B25; }
 
     /* =============================================
        HERO — Split éditorial
@@ -254,42 +240,35 @@
       grid-row: 1 / 2; grid-column: 1 / -1;
       border-radius: var(--r-2xl); overflow: hidden;
       display: grid; grid-template-columns: 1fr 1fr;
-      background: var(--g900); position: relative;
+      background: #f5f4ee; position: relative;
     }
-    .hero__main::before {
-      content: '';
-      position: absolute; inset: 0;
-      background: radial-gradient(ellipse at 20% 50%, rgba(11,194,112,0.2) 0%, transparent 55%),
-                  radial-gradient(ellipse at 85% 15%, rgba(13,217,128,0.14) 0%, transparent 45%);
-      pointer-events: none;
-    }
+    .hero__main::before { display: none; }
 
     /* Texte hero — gauche */
     .hero__copy {
       display: flex; flex-direction: column; justify-content: center;
-      padding: 52px 48px 52px 52px; color: #fff; position: relative; z-index: 1;
+      padding: 56px 52px 56px 56px; color: var(--ink); position: relative; z-index: 1;
     }
     .hero__eyebrow {
-      font-family: var(--f-ui); font-size: 10.5px; font-weight: 700;
-      text-transform: uppercase; letter-spacing: 2px;
-      color: var(--g200); margin-bottom: 16px;
-      display: flex; align-items: center; gap: 8px;
+      font-family: var(--f-ui); font-size: 9.5px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 2.5px;
+      color: var(--ink); margin-bottom: 24px;
+      display: inline-flex; align-items: center;
+      border: 1.5px solid var(--ink); padding: 5px 12px;
+      width: fit-content; border-radius: 3px;
     }
-    .hero__eyebrow::before {
-      content: '';
-      display: inline-block; width: 24px; height: 1.5px; background: var(--g400);
-    }
+    .hero__eyebrow::before { display: none; }
     .hero__h1 {
-      font-family: var(--f-head); font-size: 40px; font-weight: 800;
-      line-height: 1.15; color: #fff; margin-bottom: 12px; letter-spacing: -1px;
+      font-family: var(--f-head); font-size: 50px; font-weight: 800;
+      line-height: 1.05; color: var(--ink); margin-bottom: 18px; letter-spacing: -2px;
     }
-    .hero__h1 em { font-style: italic; color: var(--g400); }
+    .hero__h1 em { font-style: normal; color: var(--g700); }
     .hero__sub {
-      font-size: 14px; color: rgba(255,255,255,0.65);
-      line-height: 1.65; margin-bottom: 8px; max-width: 300px;
+      font-size: 14.5px; color: var(--muted);
+      line-height: 1.7; margin-bottom: 10px; max-width: 320px;
     }
-    .hero__legal { font-size: 11px; color: rgba(255,255,255,0.35); margin-bottom: 28px; }
-    .hero__legal a { color: rgba(255,255,255,0.45); text-decoration: underline; text-underline-offset: 2px; }
+    .hero__legal { font-size: 11px; color: rgba(0,0,0,0.3); margin-bottom: 32px; }
+    .hero__legal a { color: rgba(0,0,0,0.4); text-decoration: underline; text-underline-offset: 2px; }
     .hero__actions { display: flex; gap: 10px; flex-wrap: nowrap; align-items: center; }
 
     /* Illustration hero — droite */
@@ -406,73 +385,71 @@
     .hero__stat-n { font-family: var(--f-head); font-size: 22px; font-weight: 800; color: #fff; }
     .hero__stat-l { font-size: 11px; color: rgba(255,255,255,0.5); margin-top: 1px; text-transform: uppercase; letter-spacing: 0.5px; }
 
-    /* Petites cartes */
+    /* Petites cartes — style promo éditorial */
     .hero__card {
-      border-radius: var(--r-xl); overflow: hidden;
-      display: grid; grid-template-columns: 1fr 1fr;
-      align-items: end; cursor: pointer; position: relative;
+      border-radius: var(--r-2xl); overflow: hidden;
+      display: flex; align-items: stretch;
+      cursor: pointer; position: relative;
+      transition: box-shadow 250ms var(--ease-out);
     }
-    .hero__card--a { background: var(--g50); border: 1.5px solid var(--g100); }
-    .hero__card--b { background: var(--g700); }
-
-    .hero__card-stage {
-      position: relative; height: 210px;
-      display: flex; align-items: flex-end; justify-content: center;
-      padding: 0 0 0 16px; overflow: hidden; gap: -8px;
-    }
-    .hero__mini {
-      display: flex; align-items: flex-end; gap: 6px;
-      filter: drop-shadow(0 6px 16px rgba(0,0,0,0.18));
-    }
-    .hero__mini-b {
-      display: flex; align-items: center; justify-content: center;
-      border-radius: 8px 8px 4px 4px;
-      font-size: 28px;
-    }
-    .hero__card--a .hero__mini-b {
-      background: linear-gradient(160deg, rgba(255,255,255,0.95), rgba(200,255,230,0.7));
-      box-shadow: 0 4px 12px rgba(0,0,0,0.12);
-    }
-    .hero__card--b .hero__mini-b {
-      background: rgba(255,255,255,0.12);
-      border: 1px solid rgba(255,255,255,0.2);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-    }
-    .mb-t { width: 52px; height: 118px; }
-    .mb-m { width: 60px; height: 100px; }
-    .mb-s { width: 44px; height: 84px; }
+    .hero__card:hover { box-shadow: 0 12px 40px rgba(0,0,0,0.14); }
+    .hero__card--a { background: #fff; border: 1.5px solid var(--border); }
+    .hero__card--b { background: var(--g900); }
 
     .hero__card-copy {
-      padding: 24px 28px 28px 12px;
-      display: flex; flex-direction: column; justify-content: flex-end;
+      flex: 0 0 58%; padding: 32px 20px 32px 36px;
+      display: flex; flex-direction: column; justify-content: center; z-index: 1;
     }
     .hero__card--a .hero__card-copy { color: var(--ink); }
     .hero__card--b .hero__card-copy { color: #fff; }
+
     .hero__card-tag {
       font-family: var(--f-ui); font-size: 10px; font-weight: 700;
-      text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 8px;
+      text-transform: uppercase; letter-spacing: 2px; margin-bottom: 10px;
     }
     .hero__card--a .hero__card-tag { color: var(--g500); }
-    .hero__card--b .hero__card-tag { color: var(--g200); }
-    .hero__card-title { font-family: var(--f-head); font-size: 17px; font-weight: 700; line-height: 1.25; margin-bottom: 10px; }
-    .hero__card-sub { font-size: 12px; line-height: 1.55; margin-bottom: 18px; }
+    .hero__card--b .hero__card-tag { color: var(--g500); }
+
+    .hero__card-pct {
+      font-family: var(--f-head); font-size: 54px; font-weight: 900;
+      line-height: 1; letter-spacing: -2px; color: #fff; margin-bottom: 6px;
+    }
+    .hero__card-pct span { font-size: 28px; letter-spacing: -1px; }
+
+    .hero__card-title {
+      font-family: var(--f-head); font-size: 19px; font-weight: 700;
+      line-height: 1.25; margin-bottom: 8px;
+    }
+    .hero__card-sub { font-size: 12.5px; line-height: 1.6; margin-bottom: 20px; }
     .hero__card--a .hero__card-sub { color: var(--muted); }
-    .hero__card--b .hero__card-sub { color: rgba(255,255,255,0.65); }
+    .hero__card--b .hero__card-sub { color: rgba(255,255,255,0.6); }
+
     .hero__card-cta {
       display: inline-flex; align-items: center; gap: 6px;
       font-family: var(--f-head); font-size: 12.5px; font-weight: 700;
-      padding: 8px 18px; border-radius: var(--r-full);
+      padding: 9px 20px; border-radius: var(--r-full);
       width: fit-content; transition: all 150ms; border: none; cursor: pointer;
     }
     .hero__card--a .hero__card-cta { background: var(--g900); color: #fff; }
-    .hero__card--a .hero__card-cta:hover { background: var(--g700); }
-    .hero__card--b .hero__card-cta { background: #fff; color: var(--g900); }
-    .hero__card--b .hero__card-cta:hover { background: var(--g25); }
+    .hero__card--a .hero__card-cta:hover { background: var(--g500); }
+    .hero__card--b .hero__card-cta { background: var(--g500); color: #fff; }
+    .hero__card--b .hero__card-cta:hover { background: #fff; color: var(--g900); }
+
+    .hero__card-media {
+      flex: 1; position: relative; overflow: hidden; align-self: stretch;
+    }
+    .hero__card-media img {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: center;
+      transition: transform 400ms var(--ease-out);
+    }
+    .hero__card:hover .hero__card-media img { transform: scale(1.05); }
 
     /* =============================================
        TRUST BAR
     ============================================= */
-    .trust { padding: 0 0 0; }
+    .trust { padding: 40px 0px; }
     .trust__inner {
       display: grid; grid-template-columns: repeat(4, 1fr);
       border: 1px solid var(--border); border-radius: var(--r-lg);
@@ -520,33 +497,31 @@
     .cat:hover { border-color: var(--g200); transform: translateY(-4px); box-shadow: 0 12px 36px rgba(8,160,90,0.15); }
     .cat:hover .cat__name { color: #fff; }
     .cat:hover .cat__count { color: rgba(255,255,255,0.7); }
-    .cat:hover .cat__emoji { transform: scale(1.15) rotate(-5deg); }
     .cat--wide { grid-column: span 2; }
     .cat--tall { grid-row: span 2; }
-    .cat__emoji {
-      position: absolute; top: 20px; right: 20px;
-      font-size: 52px; transition: transform 300ms var(--ease-out);
-      filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1));
+    .cat__photo {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: center;
+      z-index: 0; transition: transform 500ms var(--ease-out);
     }
-    .cat--wide .cat__emoji { font-size: 64px; }
-    .cat--tall .cat__emoji { font-size: 80px; top: 30px; right: 30px; }
+    .cat:hover .cat__photo { transform: scale(1.06); }
+    .cat::before { opacity: 0.5; }
+    .cat:hover::before { opacity: 0.75; }
     .cat__name {
       font-family: var(--f-head); font-size: 16px; font-weight: 700;
-      color: var(--ink); position: relative; z-index: 1;
-      transition: color 250ms;
+      color: #fff; position: relative; z-index: 1; transition: color 250ms;
     }
     .cat--wide .cat__name, .cat--tall .cat__name { font-size: 20px; }
-    .cat__count { font-family: var(--f-ui); font-size: 11.5px; color: var(--muted); margin-top: 3px; position: relative; z-index: 1; transition: color 250ms; }
+    .cat__count { font-family: var(--f-ui); font-size: 11.5px; color: rgba(255,255,255,0.75); margin-top: 3px; position: relative; z-index: 1; }
 
-    /* Cat color backgrounds */
-    .cat--1 { background: #F0FDF8; }
-    .cat--2 { background: #FDF8F0; }
-    .cat--3 { background: #F0F8FF; }
-    .cat--4 { background: #FFF0F5; }
-    .cat--5 { background: #F5F0FF; }
-    .cat--6 { background: #F0FFF8; }
-    .cat--7 { background: #FFFBF0; }
-    .cat--8 { background: var(--g50); }
+    /* Cat color backgrounds (fallback) */
+    .cat--1 { background: #c8ddd4; }
+    .cat--2 { background: #d4c8b8; }
+    .cat--3 { background: #c8d4dd; }
+    .cat--4 { background: #ddc8cc; }
+    .cat--5 { background: #ccc8dd; }
+    .cat--6 { background: #c8ddcc; }
 
     /* =============================================
        FLASH DEAL — Bande pleine largeur
@@ -648,11 +623,11 @@
     /* =============================================
        PRODUCTS GRID — Magazine style
     ============================================= */
-    .products { padding: 72px 0; }
+    .products { padding: 0 0; }
     .prod-grid {
       display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 14px;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
     }
     .pc {
       background: var(--white); border: 1.5px solid var(--border);
@@ -675,7 +650,7 @@
     }
     .pc__wish:hover { background: var(--g50); transform: scale(1.1); }
 
-    .pc__img-wrap { height: 185px; overflow: hidden; background: var(--surface); position: relative; }
+    .pc__img-wrap { height: 240px; overflow: hidden; background: var(--surface); position: relative; }
     .pc__img-inner {
       width: 100%; height: 100%;
       display: flex; align-items: center; justify-content: center;
@@ -683,53 +658,78 @@
     }
     .pc__overlay {
       position: absolute; bottom: 0; left: 0; right: 0;
-      padding: 20px 12px 12px;
-      background: linear-gradient(transparent, rgba(6,74,42,0.12));
+      padding: 24px 14px 14px;
+      background: linear-gradient(transparent, rgba(6,74,42,0.14));
       opacity: 0; transform: translateY(6px);
       transition: all 250ms var(--ease-out);
     }
     .pc__add {
-      width: 100%; padding: 9px;
+      width: 100%; padding: 11px;
       background: var(--g900); color: #fff;
       border-radius: var(--r-md);
-      font-family: var(--f-head); font-size: 12.5px; font-weight: 600;
+      font-family: var(--f-head); font-size: 13px; font-weight: 600;
       transition: background 150ms;
     }
-    .pc__add:hover { background: var(--g700); }
+    .pc__add:hover { background: var(--g500); }
 
-    .pc__body { padding: 14px; }
-    .pc__brand { font-family: var(--f-ui); font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: var(--g500); margin-bottom: 4px; }
-    .pc__name { font-family: var(--f-head); font-size: 13px; font-weight: 600; color: var(--ink); line-height: 1.4; margin-bottom: 8px; display: -webkit-box; -webkit-line-clamp: 2; line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
-    .pc__stars { color: var(--warn); font-size: 11.5px; margin-bottom: 8px; }
-    .pc__stars span { font-family: var(--f-ui); font-size: 11px; color: var(--muted); margin-left: 4px; }
-    .pc__price { font-family: var(--f-ui); font-size: 17px; font-weight: 700; color: var(--g700); }
-    .pc__old { font-family: var(--f-ui); font-size: 12px; color: var(--muted); text-decoration: line-through; margin-left: 6px; }
+    .pc__body { padding: 16px; }
+    .pc__brand { font-family: var(--f-ui); font-size: 10.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: var(--g500); margin-bottom: 5px; }
+    .pc__name { font-family: var(--f-head); font-size: 14px; font-weight: 600; color: var(--ink); line-height: 1.4; margin-bottom: 10px; display: -webkit-box; -webkit-line-clamp: 2; line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+    .pc__stars { color: var(--warn); font-size: 12px; margin-bottom: 10px; }
+    .pc__stars span { font-family: var(--f-ui); font-size: 11.5px; color: var(--muted); margin-left: 4px; }
+    .pc__price { font-family: var(--f-ui); font-size: 19px; font-weight: 700; color: var(--g500); }
+    .pc__old { font-family: var(--f-ui); font-size: 13px; color: var(--muted); text-decoration: line-through; margin-left: 7px; }
 
     /* =============================================
-       EDITORIAL BANNERS — Duo
+       PROMO BANNER — Cosmétique naturel
     ============================================= */
-    .banners { padding: 0 0 72px; }
-    .banners__grid { display: grid; grid-template-columns: 5fr 4fr; gap: 12px; }
-    .banner {
-      border-radius: var(--r-2xl); overflow: hidden;
-      display: flex; align-items: flex-end; justify-content: space-between;
-      padding: 40px 40px 40px 44px; min-height: 220px;
-      position: relative; cursor: pointer;
+    :root { --sage: #f5f4ee; }
+    .promo-banner { padding: 0 0 72px; }
+    .pb {
+      background: var(--sage);
+      border-radius: var(--r-2xl);
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 320px;
+      position: relative;
     }
-    .banner--1 { background: linear-gradient(120deg, var(--g900) 0%, #0A6E3D 100%); }
-    .banner--2 { background: linear-gradient(135deg, #1A2F25 0%, var(--g700) 100%); }
-    .banner__text { color: #fff; position: relative; z-index: 1; }
-    .banner__tag { font-family: var(--f-ui); font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: var(--g200); margin-bottom: 10px; }
-    .banner__title { font-family: var(--f-head); font-size: 23px; font-weight: 800; line-height: 1.2; margin-bottom: 18px; }
-    .banner__cta {
+    .pb__content {
+      padding: 60px 52px;
+      display: flex; flex-direction: column; justify-content: center;
+    }
+    .pb__tag {
+      font-family: var(--f-ui); font-size: 10.5px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 2.5px;
+      color: var(--g700); margin-bottom: 18px;
+    }
+    .pb__title {
+      font-family: var(--f-head); font-size: 38px; font-weight: 800;
+      line-height: 1.12; color: var(--g900); margin-bottom: 16px;
+    }
+    .pb__desc {
+      font-family: var(--f-body); font-size: 14.5px; color: #5a5947;
+      line-height: 1.7; max-width: 360px; margin-bottom: 32px;
+    }
+    .pb__cta {
       display: inline-flex; align-items: center; gap: 8px;
-      background: #fff; color: var(--g900);
-      padding: 10px 22px; border-radius: var(--r-full);
-      font-family: var(--f-head); font-size: 12.5px; font-weight: 700;
-      transition: all 150ms;
+      background: var(--g900); color: #fff;
+      padding: 13px 30px; border-radius: var(--r-full);
+      font-family: var(--f-head); font-size: 13px; font-weight: 700;
+      width: fit-content; transition: background 200ms, gap 150ms;
+      text-decoration: none;
     }
-    .banner__cta:hover { background: var(--g50); gap: 12px; }
-    .banner__emoji { font-size: 80px; opacity: 0.2; position: absolute; right: 28px; bottom: 16px; }
+    .pb__cta:hover { background: var(--g700); gap: 13px; }
+    .pb__media {
+      position: relative; overflow: hidden;
+    }
+    .pb__photo {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: center 30%;
+      transition: transform 600ms var(--ease-out);
+    }
+    .pb:hover .pb__photo { transform: scale(1.04); }
 
     /* =============================================
        BRANDS
@@ -846,40 +846,13 @@
     .hero__illus-photo {
       position: absolute; inset: 0;
       width: 100%; height: 100%;
-      object-fit: cover; object-position: center 25%;
+      object-fit: contain; object-position: right top;
     }
-    .hero__illus-inner { position: absolute; inset: 0; z-index: 2; pointer-events: none; }
-    .illus__badge--tl { top: 24px; left: 20px; }
-    .illus__badge--br { bottom: 32px; right: 20px; }
+    .hero__illus-inner { display: none; }
 
-    /* Hero card stage photos */
-    .hero__card-stage { position: relative; overflow: hidden; }
-    .hero__stage-photo {
-      position: absolute; inset: 0;
-      width: 100%; height: 100%;
-      object-fit: cover; object-position: center;
-      z-index: 0; transition: transform 400ms var(--ease-out);
-    }
-    .hero__card:hover .hero__stage-photo { transform: scale(1.05); }
-    .hero__card--a .hero__stage-photo { opacity: 0.8; }
-    .hero__card--b .hero__stage-photo { opacity: 0.4; }
 
-    /* Category photos */
-    .cat__photo {
-      position: absolute; inset: 0;
-      width: 100%; height: 100%;
-      object-fit: cover; object-position: center;
-      z-index: 0;
-      transition: transform 500ms var(--ease-out);
-    }
-    .cat:hover .cat__photo { transform: scale(1.07); }
-    .cat::before { opacity: 0.5; }
-    .cat:hover::before { opacity: 0.75; }
+    /* Category photos — overrides moved to new cat CSS */
     .cat__emoji { display: none; }
-    .cat__name { color: #fff; }
-    .cat__count { color: rgba(255,255,255,0.8); }
-    .cat:hover .cat__name { color: #fff; }
-    .cat:hover .cat__count { color: rgba(255,255,255,0.75); }
 
     /* Product images in cards */
     .pc__img-inner { background: var(--white); }
@@ -900,79 +873,72 @@
       mix-blend-mode: multiply;
     }
 
-    /* Banner photos */
-    .banner__photo {
-      position: absolute; inset: 0;
-      width: 100%; height: 100%;
-      object-fit: cover; object-position: center;
-      z-index: 0; opacity: 0.28;
-      transition: transform 600ms var(--ease-out), opacity 300ms;
-    }
-    .banner:hover .banner__photo { transform: scale(1.04); opacity: 0.38; }
-    .banner__text { z-index: 1; }
-    .banner__emoji { display: none; }
+    /* Sage tone accents */
+    .tag--green { background: #f0efe2; color: var(--g700); }
   </style>
 </head>
 <body>
 
   <!-- ══ TOP BAR ══ -->
   <div class="topbar">
-    <div class="topbar__track">
-      <span class="topbar__msg"><span class="topbar__dot"></span> <strong>LIVRAISON OFFERTE</strong> dès 3 000 DA · Code <strong>FOUFOU26</strong></span>
-      <span class="topbar__msg"><span class="topbar__dot"></span> Commandez avant 18h → livraison <strong>demain</strong></span>
-      <span class="topbar__msg"><span class="topbar__dot"></span> Produits <strong>100 % authentiques</strong> · Retour 7 jours</span>
-      <span class="topbar__msg"><span class="topbar__dot"></span> <strong>LIVRAISON OFFERTE</strong> dès 3 000 DA · Code <strong>FOUFOU26</strong></span>
-      <span class="topbar__msg"><span class="topbar__dot"></span> Commandez avant 18h → livraison <strong>demain</strong></span>
-      <span class="topbar__msg"><span class="topbar__dot"></span> Produits <strong>100 % authentiques</strong> · Retour 7 jours</span>
-    </div>
+    <span class="topbar__msg">
+      <strong>Soldes Printemps</strong> <span class="topbar__dot"></span> Jusqu'à <strong>−35%</strong> sur une sélection de soins visage et cosmétiques · Code <strong>FOUFOU26</strong>
+    </span>
   </div>
 
   <!-- ══ HEADER ══ -->
   <header class="header">
     <div class="container">
       <div class="header__main">
+
+        <!-- Logo -->
         <a href="#" class="header__logo">Foufou <em>Ali</em></a>
+
+        <!-- Recherche large -->
         <div class="header__search">
           <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-          <input type="text" placeholder="Je cherche un produit, une marque…" />
+          <input type="text" placeholder="Rechercher un produit, une marque…" />
         </div>
+
+        <!-- Actions droite -->
         <div class="header__actions">
-          <button class="header__cta-btn">
-            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2l1.09 3.26L16 6l-2.91 2.09L14 11l-2-1.5L10 11l.91-2.91L8 6l2.91-.74z"/><path d="M19 14l.5 1.5L21 16l-1.5.5L19 18l-.5-1.5L17 16l1.5-.5z"/></svg>
-            Conseil Santé
+          <button class="header__action-group" title="Nos adresses">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span class="header__action-label"><small>Trouver</small>Nos adresses</span>
           </button>
-          <button class="header__text-link">Nos adresses</button>
-          <div class="header__div"></div>
-          <button class="header__icon" title="Compte">
+          <div class="header__divider"></div>
+          <button class="header__action-group" title="Se connecter">
             <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            <span class="header__action-label"><small>Bonjour</small>Se connecter</span>
           </button>
-          <button class="header__icon" title="Favoris">
+          <div class="header__divider"></div>
+          <button class="header__icon-only" title="Favoris">
             <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
           </button>
-          <button class="header__icon" title="Panier" style="position:relative">
+          <button class="header__icon-only" title="Panier">
             <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
             <div class="header__badge">3</div>
           </button>
         </div>
       </div>
+
+      <!-- Nav -->
       <nav class="nav">
         <div class="nav__inner">
           <button class="nav__menu">
             <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
             Menu
           </button>
-          <a href="#" class="nav__item nav__item--active">Nouveautés</a>
+          <a href="#" class="nav__item nav__item">Nouveautés</a>
           <a href="#" class="nav__item">Marques</a>
-          <a href="#" class="nav__item">Visage</a>
+          <a href="#" class="nav__item">Soin Visage</a>
           <a href="#" class="nav__item">Maquillage</a>
+          <a href="#" class="nav__item">Corps &amp; Bain</a>
           <a href="#" class="nav__item">Cheveux</a>
-          <a href="#" class="nav__item">Corps</a>
           <a href="#" class="nav__item">Bien-être</a>
-          <a href="#" class="nav__item">K-Beauty</a>
-          <a href="#" class="nav__item nav__item--conseils">Conseils</a>
-          <a href="#" class="nav__item nav__item--trendy">Trendy</a>
+          <a href="#" class="nav__item">Bébé</a>
           <div class="nav__sep"></div>
-          <a href="#" class="nav__item nav__item--promos">% Promos</a>
+          <a href="#" class="nav__item nav__item--promos">Bons Plans &amp; Promos</a>
         </div>
       </nav>
     </div>
@@ -993,18 +959,18 @@
             <p class="hero__sub">Jusqu'à 35% de remise sur une sélection de nos meilleures ventes soins visage et cosmétiques.</p>
             <p class="hero__legal">*Valable jusqu'au 30 avril 2026. <a href="#">Voir conditions</a></p>
             <div class="hero__actions">
-              <a href="#" class="cta cta--white">
+              <a href="#" class="cta cta--solid">
                 Découvrir
                 <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
               </a>
-              <a href="#" class="cta cta--ghost-white">Voir les promos</a>
+              <a href="#" class="cta cta--outline">Voir les promos</a>
             </div>
           </div>
 
           <!-- PHOTO — droite -->
           <div class="hero__illus">
             <img
-              src="https://images.pexels.com/photos/3735619/pexels-photo-3735619.jpeg?auto=compress&cs=tinysrgb&w=800&q=80"
+              src="./images/homepage-hero-1.png"
               alt="Soins cosmétiques premium"
               class="hero__illus-photo"
             />
@@ -1024,82 +990,147 @@
 
         <!-- Carte A -->
         <div class="hero__card hero__card--a">
-          <div class="hero__card-stage">
-            <img src="https://images.pexels.com/photos/31552021/pexels-photo-31552021.jpeg?auto=compress&cs=tinysrgb&w=500&q=80" class="hero__stage-photo" alt="Routines soins" />
-          </div>
           <div class="hero__card-copy">
-            <div class="hero__card-tag">Nouveauté</div>
-            <div class="hero__card-title">Les routines incontournables</div>
-            <div class="hero__card-sub">Seuls ou en duo, ils font la différence.</div>
-            <button class="hero__card-cta">Découvrir</button>
+            <div class="hero__card-tag">Sélection du moment</div>
+            <div class="hero__card-title">Routine Solaire<br/>SPF &amp; Hydratation</div>
+            <div class="hero__card-sub">Protégez et hydratez votre peau avec nos meilleurs soins solaires.</div>
+          </div>
+          <div class="hero__card-media">
+            <img src="https://images.pexels.com/photos/31552021/pexels-photo-31552021.jpeg?auto=compress&cs=tinysrgb&w=500&q=85" alt="Routine solaire" />
           </div>
         </div>
 
         <!-- Carte B -->
         <div class="hero__card hero__card--b">
-          <div class="hero__card-stage">
-            <img src="https://images.pexels.com/photos/8157159/pexels-photo-8157159.jpeg?auto=compress&cs=tinysrgb&w=500&q=80" class="hero__stage-photo" alt="Bien-être" />
-          </div>
           <div class="hero__card-copy">
-            <div class="hero__card-tag">Bien-être</div>
-            <div class="hero__card-title">Mixes. Superposez. Créez.</div>
-            <div class="hero__card-sub">Superposez vos soins et créez le sillage qui vous ressemble.</div>
-            <button class="hero__card-cta">Découvrir</button>
+            <div class="hero__card-tag">Offre limitée</div>
+            <div class="hero__card-pct">−30%<span> OFF</span></div>
+            <div class="hero__card-title">Sur tous<br/>les soins corps</div>
+          </div>
+          <div class="hero__card-media">
+            <img src="https://images.pexels.com/photos/8157159/pexels-photo-8157159.jpeg?auto=compress&cs=tinysrgb&w=500&q=85" alt="Soins corps" />
           </div>
         </div>
 
       </div>
 
-      <!-- Trust bar -->
-      <div class="trust">
-        <div class="trust__inner">
-          <div class="trust__item reveal"><div class="trust__icon">🚚</div><div><div class="trust__title">Livraison rapide</div><div class="trust__sub">48h partout en Algérie</div></div></div>
-          <div class="trust__item reveal reveal-delay-1"><div class="trust__icon">🔒</div><div><div class="trust__title">Paiement sécurisé</div><div class="trust__sub">CIB, Edahabia & espèces</div></div></div>
-          <div class="trust__item reveal reveal-delay-2"><div class="trust__icon">✅</div><div><div class="trust__title">100% authentiques</div><div class="trust__sub">Produits certifiés originaux</div></div></div>
-          <div class="trust__item reveal reveal-delay-3"><div class="trust__icon">↩️</div><div><div class="trust__title">Retour facile</div><div class="trust__sub">7 jours pour changer d'avis</div></div></div>
-        </div>
-      </div>
+      
     </div>
   </section>
+
+  
 
   <!-- ══ CATÉGORIES ══ -->
   <section class="cats">
     <div class="container">
       <div class="sh reveal">
-        <div><div class="sh__title">Nos catégories</div><div class="sh__sub">Trouvez rapidement ce dont vous avez besoin</div></div>
+        <div><div class="sh__title">Nos <em>Catégories</em></div><div class="sh__sub">Trouvez rapidement ce dont vous avez besoin</div></div>
         <a href="#" class="sh__link">Tout explorer →</a>
       </div>
       <div class="cats__grid">
+
         <div class="cat cat--1 cat--wide reveal">
           <img src="https://images.pexels.com/photos/7038177/pexels-photo-7038177.jpeg?auto=compress&cs=tinysrgb&w=700&q=80" class="cat__photo" alt="Soins Visage"/>
-          <div class="cat__name">Soins Visage</div><div class="cat__count">324 produits</div>
+          <div class="cat__name">Soins Visage</div>
+          <div class="cat__count">324 produits</div>
         </div>
+
         <div class="cat cat--2 cat--tall reveal reveal-delay-1">
-          <img src="https://images.pexels.com/photos/9775166/pexels-photo-9775166.jpeg?auto=compress&cs=tinysrgb&w=500&q=80" class="cat__photo" alt="Soins Corps"/>
-          <div class="cat__name">Soins Corps</div><div class="cat__count">218 produits</div>
+          <img src="./images/body-care-category-homepage-highlight.jpg" class="cat__photo" alt="Soins Corps"/>
+          <div class="cat__name">Soins Corps</div>
+          <div class="cat__count">218 produits</div>
         </div>
+
         <div class="cat cat--3 reveal reveal-delay-2">
-          <img src="https://images.pexels.com/photos/8129915/pexels-photo-8129915.jpeg?auto=compress&cs=tinysrgb&w=500&q=80" class="cat__photo" alt="Cheveux"/>
-          <div class="cat__name">Cheveux</div><div class="cat__count">186 produits</div>
+          <img src="./images/cheveix-category-homepage-highlight.png" class="cat__photo" alt="Cheveux"/>
+          <div class="cat__name">Cheveux</div>
+          <div class="cat__count">186 produits</div>
         </div>
+
         <div class="cat cat--4 reveal reveal-delay-1">
           <img src="https://images.pexels.com/photos/3662667/pexels-photo-3662667.jpeg?auto=compress&cs=tinysrgb&w=500&q=80" class="cat__photo" alt="Bébé"/>
-          <div class="cat__name">Bébé</div><div class="cat__count">97 produits</div>
+          <div class="cat__name">Bébé</div>
+          <div class="cat__count">97 produits</div>
         </div>
+
         <div class="cat cat--5 reveal reveal-delay-2">
-          <img src="https://images.pexels.com/photos/4040564/pexels-photo-4040564.jpeg?auto=compress&cs=tinysrgb&w=500&q=80" class="cat__photo" alt="Compléments"/>
-          <div class="cat__name">Compléments</div><div class="cat__count">142 produits</div>
+          <img src="./images/complement-category-homepage-highlight.png" class="cat__photo" alt="Compléments"/>
+          <div class="cat__name">Compléments</div>
+          <div class="cat__count">142 produits</div>
         </div>
+
         <div class="cat cat--6 reveal reveal-delay-3">
-          <img src="https://images.pexels.com/photos/3736398/pexels-photo-3736398.jpeg?auto=compress&cs=tinysrgb&w=500&q=80" class="cat__photo" alt="Hygiène"/>
-          <div class="cat__name">Hygiène</div><div class="cat__count">203 produits</div>
+          <img src="./images/hygiène-category-homepage-highlight.png" class="cat__photo" alt="Hygiène"/>
+          <div class="cat__name">Hygiène</div>
+          <div class="cat__count">203 produits</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ PRODUITS Promotions ══ -->
+  <section class="products section--tinted">
+    <div class="container">
+      <div class="sh reveal">
+        <div><div class="sh__title">Produits en<em> Promotions</em></div><div class="sh__sub">Les mieux notés par nos clients</div></div>
+        <a href="#" class="sh__link">Voir tout →</a>
+      </div>
+      <div class="prod-grid">
+        <div class="pc reveal">
+          <div class="pc__badges"><span class="tag tag--green">Nouveau</span></div>
+          <div class="pc__wish">🤍</div>
+          <div class="pc__img-wrap"><div class="pc__img-inner"><img src="https://back-ac-prod.bioderma.com/media/catalog/product/cache/03d338ebffd60c1c93520742c20c504c/d/e/de7a0a5c52c3eb289f3b1735c1f3d727-_7b202215_7d__7bbio_crealine_h2o_7d__7b28221a_7d_500x500.png" alt="Bioderma Sensibio H2O"/></div><div class="pc__overlay"><button class="pc__add">+ Ajouter au panier</button></div></div>
+          <div class="pc__body"><div class="pc__brand">Bioderma</div><div class="pc__name">Eau micellaire Sensibio H2O 500ml</div><div class="pc__stars">★★★★★ <span>(148)</span></div><div><span class="pc__price">1 850 DA</span></div></div>
+        </div>
+        <div class="pc reveal reveal-delay-1">
+          <div class="pc__badges"><span class="tag tag--orange">−20%</span></div>
+          <div class="pc__wish">❤️</div>
+          <div class="pc__img-wrap"><div class="pc__img-inner"><img src="https://www.pngitem.com/pimgs/m/555-5556209_la-roche-posay-anthelios-spf-50-shaka-fluid.png" alt="La Roche-Posay Anthelios SPF50+"/></div><div class="pc__overlay"><button class="pc__add">+ Ajouter au panier</button></div></div>
+          <div class="pc__body"><div class="pc__brand">La Roche-Posay</div><div class="pc__name">Crème solaire Anthelios SPF50+ 50ml</div><div class="pc__stars">★★★★☆ <span>(92)</span></div><div><span class="pc__price">2 400 DA</span><span class="pc__old">3 000 DA</span></div></div>
+        </div>
+        <div class="pc reveal reveal-delay-2">
+          <div class="pc__badges"><span class="tag tag--green">Stock limité</span></div>
+          <div class="pc__wish">🤍</div>
+          <div class="pc__img-wrap"><div class="pc__img-inner"><img src="https://www.pharma-gdd.com/media/cache/resolve/product_show/6d61676e652d62362d636f6d7072696d652d64652d6d61676e657369756d2d66616365eb83ff19.jpg" alt="Magné B6"/></div><div class="pc__overlay"><button class="pc__add">+ Ajouter au panier</button></div></div>
+          <div class="pc__body"><div class="pc__brand">Magné B6</div><div class="pc__name">Magnésium + Vitamine B6 — 60 cp</div><div class="pc__stars">★★★★★ <span>(217)</span></div><div><span class="pc__price">1 200 DA</span></div></div>
+        </div>
+        <div class="pc reveal reveal-delay-3">
+          <div class="pc__badges"><span class="tag tag--orange">−35%</span></div>
+          <div class="pc__wish">🤍</div>
+          <div class="pc__img-wrap"><div class="pc__img-inner"><img src="https://www.cerave.com/-/media/project/loreal/brand-sites/cerave/americas/us/products-v4/moisturizing-cream/cerave_moisturizing_cream_16oz_jar_front-700x875-v4.jpg" alt="CeraVe Crème hydratante"/></div><div class="pc__overlay"><button class="pc__add">+ Ajouter au panier</button></div></div>
+          <div class="pc__body"><div class="pc__brand">CeraVe</div><div class="pc__name">Crème hydratante peaux sèches 340g</div><div class="pc__stars">★★★★★ <span>(341)</span></div><div><span class="pc__price">1 950 DA</span><span class="pc__old">3 000 DA</span></div></div>
+        </div>
+        <div class="pc reveal reveal-delay-4">
+          <div class="pc__badges"><span class="tag tag--green">Nouveau</span></div>
+          <div class="pc__wish">🤍</div>
+          <div class="pc__img-wrap"><div class="pc__img-inner"><img src="https://media-pierre-fabre.wedia-group.com/api/wedia/dam/transform/u5wa3z31qn5sjs76g8c65k97dwfr1p93eocgqro/u5wa3z31qn5sjs76g8c65k97dwfr1p93eocgqro?t=resize&width=800&height=800" alt="Ducray Kelual DS"/></div><div class="pc__overlay"><button class="pc__add">+ Ajouter au panier</button></div></div>
+          <div class="pc__body"><div class="pc__brand">Ducray</div><div class="pc__name">Shampooing Kelual DS 200ml</div><div class="pc__stars">★★★★☆ <span>(76)</span></div><div><span class="pc__price">1 650 DA</span></div></div>
+        </div>
+        <div class="pc reveal">
+          <div class="pc__badges"><span class="tag tag--orange">−15%</span></div>
+          <div class="pc__wish">🤍</div>
+          <div class="pc__img-wrap"><div class="pc__img-inner"><img src="https://www.cerave.com/-/media/project/loreal/brand-sites/cerave/americas/us/products-v4/hydrating-cleanser/cerave_hydrating_cleanser_12oz_front-700x875-v4.jpg" alt="CeraVe Nettoyant"/></div><div class="pc__overlay"><button class="pc__add">+ Ajouter au panier</button></div></div>
+          <div class="pc__body"><div class="pc__brand">CeraVe</div><div class="pc__name">Nettoyant hydratant peaux normales à sèches 355ml</div><div class="pc__stars">★★★★★ <span>(203)</span></div><div><span class="pc__price">1 600 DA</span><span class="pc__old">1 900 DA</span></div></div>
+        </div>
+        <div class="pc reveal reveal-delay-1">
+          <div class="pc__badges"><span class="tag tag--green">Bestseller</span></div>
+          <div class="pc__wish">🤍</div>
+          <div class="pc__img-wrap"><div class="pc__img-inner"><img src="https://www.pharma-gdd.com/media/cache/resolve/product_show/6e6575747269636c696e652d6e6575747269636c696e652d6e6575747269636c696e65-soin-correct-anti-taches-50-spf50.jpg" alt="Neutrogena"/></div><div class="pc__overlay"><button class="pc__add">+ Ajouter au panier</button></div></div>
+          <div class="pc__body"><div class="pc__brand">Neutrogena</div><div class="pc__name">Hydro Boost Crème gel hydratante 50ml</div><div class="pc__stars">★★★★☆ <span>(118)</span></div><div><span class="pc__price">2 100 DA</span></div></div>
+        </div>
+        <div class="pc reveal reveal-delay-2">
+          <div class="pc__badges"><span class="tag tag--orange">−30%</span></div>
+          <div class="pc__wish">🤍</div>
+          <div class="pc__img-wrap"><div class="pc__img-inner"><img src="https://back-ac-prod.bioderma.com/media/catalog/product/cache/03d338ebffd60c1c93520742c20c504c/d/e/de7a0a5c52c3eb289f3b1735c1f3d727-_7b202215_7d__7bbio_crealine_h2o_7d__7b28221a_7d_500x500.png" alt="Bioderma"/></div><div class="pc__overlay"><button class="pc__add">+ Ajouter au panier</button></div></div>
+          <div class="pc__body"><div class="pc__brand">Bioderma</div><div class="pc__name">Sensibio Crème légère peaux sensibles 40ml</div><div class="pc__stars">★★★★★ <span>(89)</span></div><div><span class="pc__price">1 400 DA</span><span class="pc__old">2 000 DA</span></div></div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- ══ FLASH DEAL ══ -->
-  <div class="container" style="padding-bottom:72px">
+  <div class="container" style="padding:72px 0px">
     <div class="flash reveal">
       <div class="flash__left">
         <div class="flash__badge">⚡ Flash Promo</div>
@@ -1153,10 +1184,10 @@
   </div>
 
   <!-- ══ PRODUITS POPULAIRES ══ -->
-  <section class="products section--tinted">
+  <section class="products">
     <div class="container">
       <div class="sh reveal">
-        <div><div class="sh__title">Produits populaires</div><div class="sh__sub">Les mieux notés par nos clients</div></div>
+        <div><div class="sh__title">Produits <em>Populaires</em></div><div class="sh__sub">Les mieux notés par nos clients</div></div>
         <a href="#" class="sh__link">Voir tout →</a>
       </div>
       <div class="prod-grid">
@@ -1194,25 +1225,22 @@
     </div>
   </section>
 
-  <!-- ══ BANNERS ÉDITORIAUX ══ -->
-  <section class="banners section">
+  <!-- ══ PROMO BANNER ══ -->
+  <section class="promo-banner section">
     <div class="container">
-      <div class="banners__grid">
-        <div class="banner banner--1 reveal">
-          <img src="https://images.pexels.com/photos/8157581/pexels-photo-8157581.jpeg?auto=compress&cs=tinysrgb&w=900&q=80" class="banner__photo" alt="" />
-          <div class="banner__text">
-            <div class="banner__tag">Sélection saison</div>
-            <div class="banner__title">Routine solaire<br/>SPF & Hydratation</div>
-            <a href="#" class="banner__cta">Voir la sélection →</a>
-          </div>
+      <div class="pb reveal">
+        <div class="pb__content">
+          <div class="pb__tag">Soins naturels &amp; Bio</div>
+          <h2 class="pb__title">Des soins qui<br/>révèlent votre<br/>éclat naturel</h2>
+          <p class="pb__desc">Crèmes, sérums et soins formulés avec des actifs naturels pour nourrir, hydrater et protéger votre peau au quotidien.</p>
+          <a href="#" class="pb__cta">Découvrir la sélection →</a>
         </div>
-        <div class="banner banner--2 reveal reveal-delay-1">
-          <img src="https://images.pexels.com/photos/3662667/pexels-photo-3662667.jpeg?auto=compress&cs=tinysrgb&w=700&q=80" class="banner__photo" alt="" />
-          <div class="banner__text">
-            <div class="banner__tag">Espace bébé</div>
-            <div class="banner__title">Tout pour<br/>les tout-petits</div>
-            <a href="#" class="banner__cta">Découvrir →</a>
-          </div>
+        <div class="pb__media">
+          <img
+            src="./images/homepage-pub-nobg.png"
+            class="pb__photo"
+            alt="Soins visage naturels"
+          />
         </div>
       </div>
     </div>
@@ -1222,7 +1250,7 @@
   <section class="products" style="padding-top:0;padding-bottom:72px">
     <div class="container">
       <div class="sh reveal">
-        <div><div class="sh__title">Nouveautés</div><div class="sh__sub">Tout juste arrivé en stock</div></div>
+        <div><div class="sh__title">Nos <em>Nouveautés</em></div><div class="sh__sub">Tout juste arrivé en stock</div></div>
         <a href="#" class="sh__link">Voir tout →</a>
       </div>
       <div class="prod-grid">
@@ -1239,7 +1267,7 @@
   <div class="brands">
     <div class="container">
       <div class="sh reveal">
-        <div><div class="sh__title">Nos marques partenaires</div><div class="sh__sub">+150 marques certifiées disponibles</div></div>
+        <div><div class="sh__title">Nos <em>Marques</em> Partenaires</div><div class="sh__sub">+150 marques certifiées disponibles</div></div>
         <a href="#" class="sh__link">Toutes les marques →</a>
       </div>
       <div class="brands__row">
@@ -1261,6 +1289,15 @@
 
   <!-- ══ NEWSLETTER ══ -->
   <div class="container">
+    <!-- Trust bar -->
+      <div class="trust">
+        <div class="trust__inner">
+          <div class="trust__item reveal"><div class="trust__icon">🚚</div><div><div class="trust__title">Livraison rapide</div><div class="trust__sub">48h partout en Algérie</div></div></div>
+          <div class="trust__item reveal reveal-delay-1"><div class="trust__icon">🔒</div><div><div class="trust__title">Paiement sécurisé</div><div class="trust__sub">CIB, Edahabia & espèces</div></div></div>
+          <div class="trust__item reveal reveal-delay-2"><div class="trust__icon">✅</div><div><div class="trust__title">100% authentiques</div><div class="trust__sub">Produits certifiés originaux</div></div></div>
+          <div class="trust__item reveal reveal-delay-3"><div class="trust__icon">↩️</div><div><div class="trust__title">Retour facile</div><div class="trust__sub">7 jours pour changer d'avis</div></div></div>
+        </div>
+      </div>
     <div class="newsletter reveal">
       <div class="newsletter__tag"><span class="tag tag--white">Newsletter</span></div>
       <div class="newsletter__title">Restez <em>informé</em> des meilleures offres</div>
