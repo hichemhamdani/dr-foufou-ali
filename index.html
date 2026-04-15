@@ -14,9 +14,9 @@
     :root {
       --g900: #064A2A;
       --g700: #064A2A;
-      --g500: #0BC270;
-      --g400: #0BC270;
-      --g200: #0BC270;
+      --g500: #71ac1e;
+      --g400: #71ac1e;
+      --g200: #71ac1e;
       --g100: #f5f4ee;
       --g50:  #f5f4ee;
       --g25:  #f5f4ee;
@@ -154,7 +154,7 @@
     }
     .header__search:focus-within {
       border-color: var(--g500); background: #fff;
-      box-shadow: 0 0 0 4px rgba(11,194,112,0.1);
+      box-shadow: 0 0 0 4px rgba(113,172,30,0.1);
     }
     .header__search svg { width: 18px; height: 18px; color: var(--muted); flex-shrink: 0; }
     .header__search input {
@@ -282,7 +282,7 @@
       position: absolute;
       width: 420px; height: 420px;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(11,194,112,0.22) 0%, rgba(8,160,90,0.08) 50%, transparent 70%);
+      background: radial-gradient(circle, rgba(113,172,30,0.22) 0%, rgba(8,160,90,0.08) 50%, transparent 70%);
       top: 50%; left: 50%; transform: translate(-50%, -50%);
     }
     /* Anneau décoratif */
@@ -291,7 +291,7 @@
       position: absolute;
       width: 340px; height: 340px;
       border-radius: 50%;
-      border: 1px solid rgba(11,194,112,0.18);
+      border: 1px solid rgba(113,172,30,0.18);
       top: 50%; left: 50%; transform: translate(-50%, -50%);
       animation: spinRing 24s linear infinite;
     }
@@ -464,7 +464,7 @@
     .trust__item:hover { background: var(--g25); }
     .trust__icon {
       width: 40px; height: 40px; border-radius: var(--r-md);
-      background: var(--g50); display: flex; align-items: center;
+      display: flex; align-items: center;
       justify-content: center; font-size: 20px; flex-shrink: 0;
     }
     .trust__title { font-family: var(--f-head); font-size: 13px; font-weight: 600; color: var(--ink); }
@@ -536,7 +536,7 @@
     .flash::before {
       content: '';
       position: absolute; inset: 0;
-      background: radial-gradient(ellipse at 15% 50%, rgba(11,194,112,0.18) 0%, transparent 55%),
+      background: radial-gradient(ellipse at 15% 50%, rgba(113,172,30,0.18) 0%, transparent 55%),
                   radial-gradient(ellipse at 85% 20%, rgba(13,217,128,0.1) 0%, transparent 40%);
       pointer-events: none;
     }
@@ -763,7 +763,7 @@
     .newsletter::before {
       content: '';
       position: absolute; inset: 0;
-      background: radial-gradient(ellipse at 50% 0%, rgba(11,194,112,0.2) 0%, transparent 60%);
+      background: radial-gradient(ellipse at 50% 0%, rgba(113,172,30,0.2) 0%, transparent 60%);
     }
     .newsletter__tag { margin-bottom: 18px; }
     .newsletter__title {
@@ -1221,6 +1221,24 @@
           <div class="pc__img-wrap"><div class="pc__img-inner"><img src="https://media-pierre-fabre.wedia-group.com/api/wedia/dam/transform/u5wa3z31qn5sjs76g8c65k97dwfr1p93eocgqro/u5wa3z31qn5sjs76g8c65k97dwfr1p93eocgqro?t=resize&width=800&height=800" alt="Ducray Kelual DS"/></div><div class="pc__overlay"><button class="pc__add">+ Ajouter au panier</button></div></div>
           <div class="pc__body"><div class="pc__brand">Ducray</div><div class="pc__name">Shampooing Kelual DS 200ml</div><div class="pc__stars">★★★★☆ <span>(76)</span></div><div><span class="pc__price">1 650 DA</span></div></div>
         </div>
+        <div class="pc reveal">
+          <div class="pc__badges"><span class="tag tag--orange">−20%</span></div>
+          <div class="pc__wish">🤍</div>
+          <div class="pc__img-wrap"><div class="pc__img-inner"><img src="https://www.cerave.com/-/media/project/loreal/brand-sites/cerave/americas/us/products-v4/hydrating-cleanser/cerave_hydrating_cleanser_12oz_front-700x875-v4.jpg" alt="CeraVe Nettoyant"/></div><div class="pc__overlay"><button class="pc__add">+ Ajouter au panier</button></div></div>
+          <div class="pc__body"><div class="pc__brand">CeraVe</div><div class="pc__name">Nettoyant hydratant peaux normales à sèches 355ml</div><div class="pc__stars">★★★★★ <span>(203)</span></div><div><span class="pc__price">1 600 DA</span><span class="pc__old">2 000 DA</span></div></div>
+        </div>
+        <div class="pc reveal reveal-delay-1">
+          <div class="pc__badges"><span class="tag tag--green">Bestseller</span></div>
+          <div class="pc__wish">🤍</div>
+          <div class="pc__img-wrap"><div class="pc__img-inner"><img src="https://www.pharma-gdd.com/media/cache/resolve/product_show/6d61676e652d62362d636f6d7072696d652d64652d6d61676e657369756d2d66616365eb83ff19.jpg" alt="Magné B6 Comprimés"/></div><div class="pc__overlay"><button class="pc__add">+ Ajouter au panier</button></div></div>
+          <div class="pc__body"><div class="pc__brand">Magné B6</div><div class="pc__name">Magnésium Marin + Vitamine B6 — 90 cp</div><div class="pc__stars">★★★★★ <span>(156)</span></div><div><span class="pc__price">1 450 DA</span></div></div>
+        </div>
+        <div class="pc reveal reveal-delay-2">
+          <div class="pc__badges"><span class="tag tag--orange">−25%</span></div>
+          <div class="pc__wish">🤍</div>
+          <div class="pc__img-wrap"><div class="pc__img-inner"><img src="https://back-ac-prod.bioderma.com/media/catalog/product/cache/03d338ebffd60c1c93520742c20c504c/d/e/de7a0a5c52c3eb289f3b1735c1f3d727-_7b202215_7d__7bbio_crealine_h2o_7d__7b28221a_7d_500x500.png" alt="Bioderma Sensibio"/></div><div class="pc__overlay"><button class="pc__add">+ Ajouter au panier</button></div></div>
+          <div class="pc__body"><div class="pc__brand">Bioderma</div><div class="pc__name">Sensibio Light Crème apaisante peaux sensibles 40ml</div><div class="pc__stars">★★★★☆ <span>(94)</span></div><div><span class="pc__price">1 700 DA</span><span class="pc__old">2 280 DA</span></div></div>
+        </div>
       </div>
     </div>
   </section>
@@ -1290,14 +1308,51 @@
   <!-- ══ NEWSLETTER ══ -->
   <div class="container">
     <!-- Trust bar -->
-      <div class="trust">
-        <div class="trust__inner">
-          <div class="trust__item reveal"><div class="trust__icon">🚚</div><div><div class="trust__title">Livraison rapide</div><div class="trust__sub">48h partout en Algérie</div></div></div>
-          <div class="trust__item reveal reveal-delay-1"><div class="trust__icon">🔒</div><div><div class="trust__title">Paiement sécurisé</div><div class="trust__sub">CIB, Edahabia & espèces</div></div></div>
-          <div class="trust__item reveal reveal-delay-2"><div class="trust__icon">✅</div><div><div class="trust__title">100% authentiques</div><div class="trust__sub">Produits certifiés originaux</div></div></div>
-          <div class="trust__item reveal reveal-delay-3"><div class="trust__icon">↩️</div><div><div class="trust__title">Retour facile</div><div class="trust__sub">7 jours pour changer d'avis</div></div></div>
-        </div>
+<div class="trust">
+  <div class="trust__inner">
+    
+    <div class="trust__item reveal">
+      <div class="trust__icon">
+        <img src="icons/truck_819438.svg" alt="Livraison rapide">
       </div>
+      <div>
+        <div class="trust__title">Livraison rapide</div>
+        <div class="trust__sub">48h partout en Algérie</div>
+      </div>
+    </div>
+
+    <div class="trust__item reveal reveal-delay-1">
+      <div class="trust__icon">
+        <img src="icons/credit-card_657076.svg" alt="Paiement sécurisé">
+      </div>
+      <div>
+        <div class="trust__title">Paiement sécurisé</div>
+        <div class="trust__sub">CIB, Edahabia & espèces</div>
+      </div>
+    </div>
+
+    <div class="trust__item reveal reveal-delay-2">
+      <div class="trust__icon">
+        <img src="icons/color-picker_3854814.svg" alt="Produits authentiques">
+      </div>
+      <div>
+        <div class="trust__title">Retour facile</div>
+        <div class="trust__sub">Produits certifiés originaux</div>
+      </div>
+    </div>
+
+    <div class="trust__item reveal reveal-delay-3">
+      <div class="trust__icon">
+        <img src="icons/beauty_14535135.svg" alt="Retour facile">
+      </div>
+      <div>
+        <div class="trust__title">100% authentiques</div>
+        <div class="trust__sub">7 jours pour changer d'avis</div>
+      </div>
+    </div>
+
+  </div>
+</div>
     <div class="newsletter reveal">
       <div class="newsletter__tag"><span class="tag tag--white">Newsletter</span></div>
       <div class="newsletter__title">Restez <em>informé</em> des meilleures offres</div>
