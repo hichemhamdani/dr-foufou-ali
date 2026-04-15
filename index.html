@@ -449,26 +449,33 @@
     /* =============================================
        TRUST BAR
     ============================================= */
-    .trust { padding: 40px 0px; }
+    .trust { padding: 72px 0; background: #fff; }
     .trust__inner {
       display: grid; grid-template-columns: repeat(4, 1fr);
-      border: 1px solid var(--border); border-radius: var(--r-lg);
-      overflow: hidden; margin-top: 16px;
+      gap: 24px;
     }
     .trust__item {
-      display: flex; align-items: center; gap: 14px;
-      padding: 20px 24px; border-right: 1px solid var(--border);
-      background: var(--white); transition: background 150ms;
+      display: flex; flex-direction: column;
+      align-items: center; text-align: center;
+      padding: 0 20px;
     }
-    .trust__item:last-child { border-right: none; }
-    .trust__item:hover { background: var(--g25); }
     .trust__icon {
-      width: 40px; height: 40px; border-radius: var(--r-md);
-      display: flex; align-items: center;
-      justify-content: center; font-size: 20px; flex-shrink: 0;
+      width: 88px; height: 88px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 22px;
     }
-    .trust__title { font-family: var(--f-head); font-size: 13px; font-weight: 600; color: var(--ink); }
-    .trust__sub { font-size: 11.5px; color: var(--muted); margin-top: 2px; }
+    .trust__icon img {
+      width: 72px; height: 72px;
+      object-fit: contain;
+    }
+    .trust__title {
+      font-family: var(--f-head); font-size: 21px; font-weight: 700;
+      color: var(--ink); margin-bottom: 12px; line-height: 1.2;
+    }
+    .trust__sub {
+      font-family: var(--f-body); font-size: 14px; color: var(--muted);
+      line-height: 1.7; max-width: 220px;
+    }
 
     /* =============================================
        CATEGORIES — Grande grille asymétrique
@@ -1306,49 +1313,41 @@
   </div>
 
   <!-- ══ NEWSLETTER ══ -->
-  <div class="container">
+  <div class="container" style="border-top:2px solid var(--sage);">
     <!-- Trust bar -->
 <div class="trust">
   <div class="trust__inner">
-    
+
     <div class="trust__item reveal">
       <div class="trust__icon">
-        <img src="icons/truck_819438.svg" alt="Livraison rapide">
+        <img src="icons/truck_819438.svg" alt="Livraison rapide" />
       </div>
-      <div>
-        <div class="trust__title">Livraison rapide</div>
-        <div class="trust__sub">48h partout en Algérie</div>
-      </div>
+      <div class="trust__title">Livraison rapide</div>
+      <div class="trust__sub">Recevez vos commandes en 48h partout en Algérie.</div>
     </div>
 
     <div class="trust__item reveal reveal-delay-1">
       <div class="trust__icon">
-        <img src="icons/credit-card_657076.svg" alt="Paiement sécurisé">
+        <img src="icons/credit-card_657076.svg" alt="Paiement sécurisé" />
       </div>
-      <div>
-        <div class="trust__title">Paiement sécurisé</div>
-        <div class="trust__sub">CIB, Edahabia & espèces</div>
-      </div>
+      <div class="trust__title">Paiement sécurisé</div>
+      <div class="trust__sub">CIB, Edahabia, virement ou paiement à la livraison.</div>
     </div>
 
     <div class="trust__item reveal reveal-delay-2">
       <div class="trust__icon">
-        <img src="icons/color-picker_3854814.svg" alt="Produits authentiques">
+        <img src="icons/beauty_14535135.svg" alt="Produits certifiés" />
       </div>
-      <div>
-        <div class="trust__title">Retour facile</div>
-        <div class="trust__sub">Produits certifiés originaux</div>
-      </div>
+      <div class="trust__title">Produits Certifiés</div>
+      <div class="trust__sub">100% authentiques, issus des distributeurs officiels.</div>
     </div>
 
     <div class="trust__item reveal reveal-delay-3">
       <div class="trust__icon">
-        <img src="icons/beauty_14535135.svg" alt="Retour facile">
+        <img src="icons/color-picker_3854814.svg" alt="Retour facile" />
       </div>
-      <div>
-        <div class="trust__title">100% authentiques</div>
-        <div class="trust__sub">7 jours pour changer d'avis</div>
-      </div>
+      <div class="trust__title">Retour Facile</div>
+      <div class="trust__sub">7 jours pour changer d'avis, retour simple et gratuit.</div>
     </div>
 
   </div>
